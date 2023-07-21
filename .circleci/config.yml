@@ -1,9 +1,18 @@
 version: 2.1
 
 jobs: 
+  test: 
+    macos:
+      xcode: 14.2.0 
+    steps: 
+      - checkout  
+      - run:
+          name: ls app
+          command: ls /Applications/
+
   build: 
     macos:
-      xcode: 14.2.0
+      xcode: 14.2.0 
     steps: 
       - checkout
       - run:
@@ -12,10 +21,12 @@ jobs:
       - run:
           name: SIP status
           command: csrutil status
-
-
           
 workflows:
   test_build:
     jobs:
+      - test
       - build:
+          requires:
+            - test
+
