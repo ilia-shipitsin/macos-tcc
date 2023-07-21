@@ -23,9 +23,9 @@ jobs:
           command: csrutil status        
       - run:
           name: screencapture
-          command: Desktop/image.png
+          command: screencapture image.png
       - store_artifacts:
-          path: Desktop/image.png
+          path: image.png
           destination: image.png
 
 workflows:
