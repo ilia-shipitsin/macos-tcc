@@ -27,6 +27,15 @@ jobs:
       - store_artifacts:
           path: image.png
           destination: image.png
+      - run:
+          name: collect TCC
+          command: |
+            mkdir tcc
+            cp "/Library/Application Support/com.apple.TCC/TCC.db" tcc/TCC-system.db
+            cp "$HOME/Library/Application Support/com.apple.TCC/TCC.db" tcc/TCC-user.db
+      - store_artifacts:
+          path: tcc
+          destination: tcc
 
 workflows:
   test_build:
