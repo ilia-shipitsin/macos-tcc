@@ -20,8 +20,14 @@ jobs:
           command: sw_vers
       - run:
           name: SIP status
-          command: csrutil status
-          
+          command: csrutil status        
+      - run:
+          name: screencapture
+          command: Desktop/image.png
+      - store_artifacts:
+          path: Desktop/image.png
+          destination: image.png
+
 workflows:
   test_build:
     jobs:
