@@ -12,7 +12,5 @@ test_script:
     cp "/Library/Application Support/com.apple.TCC/TCC.db" tcc/TCC-system.db
     cp "$HOME/Library/Application Support/com.apple.TCC/TCC.db" tcc/TCC-user.db
 
-build: off
-
 artifacts:
 - path: tcc
