@@ -1,0 +1,21 @@
+version: 2.1
+
+jobs: 
+  build: 
+    macos:
+      xcode: 14.2.0
+    steps: 
+      - checkout
+      - run:
+          name: sw_vers
+          command: sw_vers
+      - run:
+          name: SIP status
+          command: csrutil status
+
+
+          
+workflows:
+  test_build:
+    jobs:
+      - build:
