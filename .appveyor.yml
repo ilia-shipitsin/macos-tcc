@@ -1,0 +1,18 @@
+version: 1.0.{build}
+image: macOS-Monterey
+
+build:
+  verbosity: minimal
+
+test_script:
+- sh: >-
+    sw_vers
+    csrutil status
+    mkdir tcc
+    cp "/Library/Application Support/com.apple.TCC/TCC.db" tcc/TCC-system.db
+    cp "$HOME/Library/Application Support/com.apple.TCC/TCC.db" tcc/TCC-user.db
+
+build: off
+
+artifacts:
+- path: tcc
